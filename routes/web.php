@@ -10,7 +10,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Frontend site ..........
+Route::get('/','HomeController@index');
 
-Route::get('/', function () {
-    return view('layout');
-});
+
+
+
+
+
+
+
+
+//Backend site...................................
+Route::get('/admin','AdminController@index');
+
