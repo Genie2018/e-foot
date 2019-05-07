@@ -23,4 +23,11 @@ Route::get('/','HomeController@index');
 
 //Backend site...................................
 Route::get('/admin','AdminController@index');
+Route::get('/dashboard','AdminController@show_dashboard');
+Route::post('/admin-dashboard','AdminController@dashboard');
+Route::get('/logout','SuperAdminController@logout');
+
+//category related route
+Route::get('/add-category','CategoryController@index');
+Route::get('/all-category','CategoryController@all_category');
 
