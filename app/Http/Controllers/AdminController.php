@@ -21,26 +21,26 @@ class AdminController extends Controller
     }
 
 
-    public function show_dashboard(){
+    public function show_tableaudebord(){
 
-         return view('admin.dashboard');
+         return view('admin.tableaudebord');
     }
 
- public function dashboard(Request $request){
+ public function tableaudebord(Request $request){
 
     $admin_email=$request->admin_email;
     $admin_password=md5($request->admin_password);
-    $result=DB::table('tbl_admin')
+    $result=DB::table('table_admin')
         ->where('admin_email',$admin_email)
         ->where('admin_password',$admin_password)
         ->first();
         if ($result) {
             Session::put('admin_name',$result->admin_name);
             Session::put('admin_id',$result->admin_id);
-            return Redirect::to('/dashboard');
+            return Redirect::to('/tableaudebord');
         }
         else{
-            Session::put('message','email or message invalid');
+            Session::put('message','@mail ou message invalide');
             return Redirect::to('/admin');
          }
     }
@@ -50,7 +50,7 @@ class AdminController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {   
         //
     }
 

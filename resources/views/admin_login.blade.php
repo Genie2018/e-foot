@@ -4,7 +4,7 @@
 	
 	<!-- start: Meta -->
 	<meta charset="utf-8">
-	<title>Admin Login</title>
+	<title>Se connecter en tant que administrateur</title>
 	<meta name="description" content="Bootstrap Metro Dashboard">
 	<meta name="author" content="Dennis Ji">
 	<meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
@@ -56,8 +56,8 @@
 
 					?>
 					</p>
-					<h2>Login to your account</h2>
-					<form class="form-horizontal" action="{{url('/admin-dashboard')}}" method="post">
+					<h2>Se connecter à ton compte</h2>
+					<form class="form-horizontal" action="{{url('/admin-tableaudebord')}}" method="post">
 						{{ csrf_field() }}
 						<fieldset>
 							
@@ -75,14 +75,14 @@
 							
 						
 							<div class="button-login">	
-								<button type="submit" class="btn btn-primary">Login</button>
+								<button type="submit" class="btn btn-primary">se connecter</button>
 							</div>
 							<div class="clearfix"></div>
 					</form>
 					<hr>
-					<h3>Forgot Password?</h3>
+					<h3>Mot de passe oublié?</h3>
 					<p>
-						No problem, <a href="#">click here</a> to get a new password.
+						pas de probleme, <a href="#">clique ici</a> pour avoir un nouveau mot de passe.
 					</p>	
 				</div><!--/span-->
 			</div><!--/row-->

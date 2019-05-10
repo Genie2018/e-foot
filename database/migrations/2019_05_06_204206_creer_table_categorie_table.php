@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTblAdminTable extends Migration
+class CreerTableCategorieTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateTblAdminTable extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_admin', function (Blueprint $table) {
-            $table->increments('admin_id');
-            $table->string('admin_email');
-            $table->string('admin_password');
-            $table->string('admin_name');
-            $table->string('admin_phone');
+        Schema::create('table_categorie', function (Blueprint $table) {
+            $table->bigIncrements('categorie_id');
+            $table->string('categorie_nom');
+            $table->string('categorie_description');
+            $table->integer('publication_status');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateTblAdminTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_admin');
+        Schema::dropIfExists('table_categorie');
     }
 }

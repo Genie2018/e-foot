@@ -15,7 +15,7 @@ class SuperAdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function logout()
+    public function deconnecter()
     {
      //   Session::put('admin_name',null);
        // Session::put('admin_id',null);
