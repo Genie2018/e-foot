@@ -27,7 +27,7 @@ class CategorieController extends Controller
         $manage_categorie=view('admin.toute_categorie')
             ->with('toute_categorie_info',$toute_categorie_info);
 
-        return view('admin_layout')->with('toute_categorie',$manage_categorie);
+        return view('admin_layout')->with('admin.toute_categorie',$manage_categorie);
     }
 
     public function sauvegarder_categorie(Request $request)
@@ -48,9 +48,24 @@ class CategorieController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function inactive_categorie($categorie_id)
     {
-        //
+        DB::table('table_categorie')
+        ->where('categorie_id',$categorie_id)
+        ->update(['publication_status' => 0]);
+         Session::put('message','Categorie inactive avec sucess !!');
+
+        return Redirect::to('/toute-categorie');
+    }
+
+    public function active_categorie($categorie_id)
+    {
+        DB::table('table_categorie')
+        ->where('categorie_id',$categorie_id)
+        ->update(['publication_status' => 1]);
+         Session::put('message','Categorie active avec sucess !!');
+
+        return Redirect::to('/toute-categorie');
     }
 
     /**
@@ -81,9 +96,16 @@ class CategorieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit_categorie($categorie_id)
     {
-        //
+        $categorie_info=DB::table('table_categorie')
+            ->where('categorie_id',$categorie_id)
+            ->first();
+           $categorie_info=view('admin.edit_categorie')
+            ->with('categorie_info',$categorie_info);
+
+        return view('admin_layout')
+        ->with('admin.edit_categorie',$categorie_info);
     }
 
     /**
@@ -93,9 +115,17 @@ class CategorieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function modifier_categorie(Request $request,$categorie_id)
     {
-        //
+        $data=array();
+        $data['categorie_nom']=$request->categorie_nom;
+        $data['categorie_description']=$request->categorie_description;
+
+        DB::table('table_categorie')
+        ->where('categorie_id',$categorie_id)
+        ->update($data);
+        Session::get('message','Categorie modifiee avec succes');
+        return Redirect::to('/toute-categorie');
     }
 
     /**
@@ -104,8 +134,12 @@ class CategorieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete_categorie($categorie_id)
     {
-        //
+        DB::table('table_categorie')
+        ->where('categorie_id',$categorie_id)
+        ->delete();
+        Session::get('message','Categorie supprimée avec succes');
+        return Redirect::to('/toute-categorie');
     }
 }
