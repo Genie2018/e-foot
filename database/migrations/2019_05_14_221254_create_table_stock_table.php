@@ -20,7 +20,7 @@ class CreateTableStockTable extends Migration
             $table->integer('produit_id');
             $table->text('stock_court_desc');
             $table->text('stock_long_desc');
-            $table->float('stock_prix');
+            $table->integer('stock_prix');
             $table->string('stock_image');
             $table->string('stock_size');
             $table->string('stock_couleur');

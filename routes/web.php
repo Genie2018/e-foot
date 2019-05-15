@@ -49,4 +49,5 @@ Route::get('/delete-produit/{produit_id}','ProduitController@delete_produit');
 
 //Stock Routes
 Route::get('/ajouter-stock','StockController@index');
+Route::post('/sauvegarder-stock','StockController@sauvegarder_stock');
 
