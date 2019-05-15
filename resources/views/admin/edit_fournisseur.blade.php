@@ -10,14 +10,14 @@
 				</li>
 				<li>
 					<i class="icon-edit"></i>
-					<a href="#">Modififer un produit</a>
+					<a href="#">Modififer un fournisseur</a>
 				</li>
 			</ul>
 			
 			<div class="row-fluid sortable">
 				<div class="box span12">
 					<div class="box-header" data-original-title>
-						<h2><i class="halflings-icon edit"></i><span class="break"></span>Modifier un produit</h2>
+						<h2><i class="halflings-icon edit"></i><span class="break"></span>Modifier un fournisseur</h2>
 						
 							<p class="alert-success">
 								<?php
@@ -33,26 +33,26 @@
 								
 					</div>
 					<div class="box-content">
-						<form class="form-horizontal" action="{{url('/modifier-produit',$produit_info->produit_id)}}" method="post">
+						<form class="form-horizontal" action="{{url('/modifier-fournisseur',$fournisseur_info->fournisseur_id)}}" method="post">
 							{{ csrf_field() }}
 						  <fieldset>
 							
 							<div class="control-group">
-							  <label class="control-label" for="date01">Nom produit</label>
+							  <label class="control-label" for="date01">Nom fournisseur</label>
 							  <div class="controls">
-								<input type="text" class="input-xlarge" name="produit_nom" value="{{$produit_info->produit_nom}}">
+								<input type="text" class="input-xlarge" name="fournisseur_nom" value="{{$fournisseur_info->fournisseur_nom}}">
 							  </div>
 							</div>
 					      
 							<div class="control-group hidden-phone">
-							  <label class="control-label" for="textarea2">produit description</label>
+							  <label class="control-label" for="textarea2">fournisseur description</label>
 							  <div class="controls">
-								<textarea class="cleditor" name="produit_description" value="">{{$produit_info->produit_description}}</textarea>
+								<textarea class="cleditor" name="fournisseur_description" value="">{{$fournisseur_info->fournisseur_description}}</textarea>
 							  </div>
 							</div>
 							
 							<div class="form-actions">
-							  <button type="submit" class="btn btn-primary">Modifier le produit</button>
+							  <button type="submit" class="btn btn-primary">Modifier le fournisseur</button>
 							</div>
 						  </fieldset>
 						</form>   

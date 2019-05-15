@@ -115,8 +115,8 @@
                                 <li><a href="index.html" class="active">Accueil</a></li>
                                 <li class="dropdown"><a href="#">Boutique<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.html">Produits</a></li>
-                                        <li><a href="product-details.html">Details Produits</a></li> 
+                                        <li><a href="shop.html">fournisseurs</a></li>
+                                        <li><a href="product-details.html">Details fournisseurs</a></li> 
                                         <li><a href="checkout.html">Checkout</a></li> 
                                         <li><a href="cart.html">Cart</a></li> 
                                         <li><a href="login.html">Se connecter</a></li> 
@@ -240,12 +240,12 @@
                                 <ul class="nav nav-pills nav-stacked">
 
                            <?php 
-                                $toute_publication_produit=DB::table('table_produit')
+                                $toute_publication_fournisseur=DB::table('table_fournisseur')
                                         ->where('publication_status',1)
                                         ->get();
                             
-                                       foreach($toute_publication_produit as $v_produit){?> 
-                                    <li><a href="#"> <span class="pull-right">(50)</span>{{$v_produit->produit_nom}}</a></li>
+                                       foreach($toute_publication_fournisseur as $v_fournisseur){?> 
+                                    <li><a href="#"> <span class="pull-right">(50)</span>{{$v_fournisseur->fournisseur_nom}}</a></li>
                                     <?php } ?>
                                 </ul>
                             </div>
