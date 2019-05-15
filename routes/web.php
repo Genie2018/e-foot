@@ -46,3 +46,7 @@ Route::get('/active-produit/{produit_id}','ProduitController@active_produit');
 Route::get('/edit-produit/{produit_id}','ProduitController@edit_produit');
 Route::post('/modifier-produit/{produit_id}','ProduitController@modifier_produit');
 Route::get('/delete-produit/{produit_id}','ProduitController@delete_produit');
+
+//Stock Routes
+Route::get('/ajouter-stock','StockController@index');
+
