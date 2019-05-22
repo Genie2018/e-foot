@@ -24,7 +24,7 @@ class ProduitController extends Controller
     {
         $data=array();
         $data['produit_nom']=$request->produit_nom;
-        $data['categorie_id']=$request->categorie_id;
+        $data['produit_id']=$request->produit_id;
         $data['fournisseur_id']=$request->fournisseur_id;        
         $data['produit_court_desc']=$request->produit_court_desc;
         $data['produit_long_desc']=$request->produit_long_desc;
@@ -55,6 +55,19 @@ class ProduitController extends Controller
         Session::put('message','produit ajoutée avec sucess sans image!!');
         return Redirect::to('/ajouter-produit');
     }
+
+    public function tous_produit()
+    {
+        $tous_produit_info=DB::table('table_produit')
+                        ->join('table_categorie','table_produit.categorie_id','=','table_categorie.categorie_id')
+                        ->join('table_fournisseur','table_produit.fournisseur_id','=','table_fournisseur.fournisseur_id')
+                        ->get();
+        $manage_produit=view('admin.tous_produit')
+            ->with('tous_produit_info',$tous_produit_info);
+
+        return view('admin_layout')->with('admin.tous_produit',$manage_produit);
+    }
+    
 
     /**
      * Show the form for creating a new resource.

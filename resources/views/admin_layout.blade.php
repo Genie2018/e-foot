@@ -346,7 +346,7 @@
 							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">produit</span><span class="label label-important">Nouveau</span></a>
 							<ul>
 								<li><a class="submenu" href="{{URL::to('/ajouter-produit')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">Ajouter produit</span></a></li>
-								<li><a class="submenu" href="submenu2.html"><i class="icon-file-alt"></i><span class="hidden-tablet">Tous les produits</span></a></li>
+								<li><a class="submenu" href="{{URL::to('/tous-produit')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">Tous les produits</span></a></li>
 								
 							</ul>	
 						</li>

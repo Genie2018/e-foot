@@ -50,4 +50,4 @@ Route::get('/delete-fournisseur/{fournisseur_id}','FournisseurController@delete_
 //produit Routes
 Route::get('/ajouter-produit','produitController@index');
 Route::post('/sauvegarder-produit','produitController@sauvegarder_produit');
-
+Route::get('/tous-produit','produitController@tous_produit');
