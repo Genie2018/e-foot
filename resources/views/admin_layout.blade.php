@@ -314,7 +314,7 @@
  									<span>Account Settings</span>
 								</li>
 								<li><a href="#"><i class="halflings-icon user"></i> Profile</a></li>
-								<li><a href="{{URL::to('/logout')}}"><i class="halflings-icon off"></i> Logout</a></li>
+								<li><a href="{{URL::to('/deconnecter')}}"><i class="halflings-icon off"></i>Se deconnecter</a></li>
 							</ul>
 						</li>
 						<!-- end: User Dropdown -->

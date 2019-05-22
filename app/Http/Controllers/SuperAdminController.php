@@ -15,11 +15,29 @@ class SuperAdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function deconnecter()
+   
+
+    public function index(){
+
+         $this->AdminAuthCheck();
+         return view('admin.tableaudebord');
+    }
+
+     public function deconnecter()
     {
      //   Session::put('admin_name',null);
        // Session::put('admin_id',null);
         Session::flush();
         return Redirect::to('/admin');
+    }
+
+    public function AdminAuthCheck(){
+        $admin=Session::get('admin_id');
+        if($admin){
+            return;
+        }
+        else{
+            return Redirect::to('/admin')->send();
+        }
     }
 }

@@ -8,6 +8,7 @@ use App\Http\Requests;
 use Session;
 use Illuminate\Support\Facades\Redirect;
 
+
 class ProduitController extends Controller
 {
     /**
@@ -23,8 +24,9 @@ class ProduitController extends Controller
     public function sauvegarder_produit(Request $request)
     {
         $data=array();
-        $data['produit_nom']=$request->produit_nom;
         $data['produit_id']=$request->produit_id;
+        $data['produit_nom']=$request->produit_nom;
+        $data['categorie_id']=$request->categorie_id;
         $data['fournisseur_id']=$request->fournisseur_id;        
         $data['produit_court_desc']=$request->produit_court_desc;
         $data['produit_long_desc']=$request->produit_long_desc;
@@ -67,7 +69,38 @@ class ProduitController extends Controller
 
         return view('admin_layout')->with('admin.tous_produit',$manage_produit);
     }
+
+
     
+    public function active_produit($produit_id)
+    {
+        DB::table('table_produit')
+        ->where('produit_id',$produit_id)
+        ->update(['publication_status' => 1]);
+         Session::put('message','Produit active avec sucess !!');
+
+        return Redirect::to('/tous-produit');
+    }
+
+         public function inactive_produit($produit_id)
+    {
+        DB::table('table_produit')
+        ->where('produit_id',$produit_id)
+        ->update(['publication_status' => 0]);
+         Session::put('message','Produit inactive avec sucess !!');
+
+        return Redirect::to('/tous-produit');
+    }
+
+
+         public function delete_produit($produit_id)
+    {
+        DB::table('table_produit')
+        ->where('produit_id',$produit_id)
+        ->delete();
+        Session::get('message','Produit supprimée avec succes');
+        return Redirect::to('/tous-produit');
+    }
 
     /**
      * Show the form for creating a new resource.

@@ -23,7 +23,7 @@ Route::get('/','HomeController@index');
 
 //Backend site...................................
 Route::get('/admin','AdminController@index');
-Route::get('/tableaudebord','AdminController@show_tableaudebord');
+Route::get('/tableaudebord','SuperAdminController@index');
 Route::post('/admin-tableaudebord','AdminController@tableaudebord');
 Route::get('/deconnecter','SuperAdminController@deconnecter');
 
@@ -48,6 +48,11 @@ Route::post('/modifier-fournisseur/{fournisseur_id}','FournisseurController@modi
 Route::get('/delete-fournisseur/{fournisseur_id}','FournisseurController@delete_fournisseur');
 
 //produit Routes
-Route::get('/ajouter-produit','produitController@index');
-Route::post('/sauvegarder-produit','produitController@sauvegarder_produit');
-Route::get('/tous-produit','produitController@tous_produit');
+Route::get('/ajouter-produit','ProduitController@index');
+Route::post('/sauvegarder-produit','ProduitController@sauvegarder_produit');
+Route::get('/tous-produit','ProduitController@tous_produit');
+Route::get('/inactive-produit/{produit_id}','ProduitController@inactive_produit');
+Route::get('/active-produit/{produit_id}','ProduitController@active_produit');
+//Route::get('/edit-produit/{produit_id}','ProduitController@edit_produit');
+//Route::post('/modifier-produit/{produit_id}','ProduitController@modifier_produit');
+Route::get('/delete-produit/{produit_id}','ProduitController@delete_produit');

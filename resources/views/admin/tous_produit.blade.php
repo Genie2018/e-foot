@@ -53,7 +53,7 @@
 								<td class="center">{{$v_produit->categorie_nom}}</td>
 								<td class="center">{{$v_produit->fournisseur_nom}}</td>
 								<td class="center">{{$v_produit->produit_court_desc}}</td>
-								<td class="center">{{$v_produit->produit_prix}}</td>
+								<td class="center">{{$v_produit->produit_prix}} Franc CFA</td>
 								<td class="center"><img src="{{$v_produit->produit_image}}" style="height: 80px; width: 80px;"></td>
 								<td class="center">{{$v_produit->produit_size}}</td>
 								<td class="center">{{$v_produit->produit_couleur}}</td>
