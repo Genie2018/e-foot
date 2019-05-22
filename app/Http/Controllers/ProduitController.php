@@ -11,6 +11,19 @@ use Illuminate\Support\Facades\Redirect;
 
 class ProduitController extends Controller
 {
+
+    
+     public function AdminAuthCheck(){
+        $admin=Session::get('admin_id');
+        if($admin){
+            return;
+        }
+        else{
+            return Redirect::to('/admin')->send();
+        }
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -18,6 +31,7 @@ class ProduitController extends Controller
      */
     public function index()
     {
+        $this->AdminAuthCheck();
         return view('admin.ajouter_produit');
     }
 
@@ -59,7 +73,8 @@ class ProduitController extends Controller
     }
 
     public function tous_produit()
-    {
+    {   
+        $this->AdminAuthCheck();
         $tous_produit_info=DB::table('table_produit')
                         ->join('table_categorie','table_produit.categorie_id','=','table_categorie.categorie_id')
                         ->join('table_fournisseur','table_produit.fournisseur_id','=','table_fournisseur.fournisseur_id')

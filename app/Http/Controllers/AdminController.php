@@ -21,11 +21,7 @@ class AdminController extends Controller
     }
 
 
-    public function show_tableaudebord(){
-
-         return view('admin.tableaudebord');
-    }
-
+    
  public function tableaudebord(Request $request){
 
     $admin_email=$request->admin_email;
@@ -44,6 +40,9 @@ class AdminController extends Controller
             return Redirect::to('/admin');
          }
     }
+
+    
+    
     /**
      * Show the form for creating a new resource.
      *

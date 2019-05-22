@@ -17,12 +17,12 @@ class CategorieController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   $this->AdminAuthCheck();
         return view('admin.ajouter_categorie');
     }
 
     public function toute_categorie()
-    {
+    {   $this->AdminAuthCheck();
         $toute_categorie_info=DB::table('table_categorie')->get();
         $manage_categorie=view('admin.toute_categorie')
             ->with('toute_categorie_info',$toute_categorie_info);
@@ -68,6 +68,18 @@ class CategorieController extends Controller
         return Redirect::to('/toute-categorie');
     }
 
+
+    public function AdminAuthCheck(){
+        $admin=Session::get('admin_id');
+        if($admin){
+            return;
+        }
+        else{
+            return Redirect::to('/admin')->send();
+        }
+    }
+
+
     /**
      * Store a newly created resource in storage.
      *
@@ -97,7 +109,7 @@ class CategorieController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit_categorie($categorie_id)
-    {
+    {   $this->AdminAuthCheck();
         $categorie_info=DB::table('table_categorie')
             ->where('categorie_id',$categorie_id)
             ->first();
