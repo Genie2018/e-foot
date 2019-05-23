@@ -56,3 +56,14 @@ Route::get('/active-produit/{produit_id}','ProduitController@active_produit');
 //Route::get('/edit-produit/{produit_id}','ProduitController@edit_produit');
 //Route::post('/modifier-produit/{produit_id}','ProduitController@modifier_produit');
 Route::get('/delete-produit/{produit_id}','ProduitController@delete_produit');
+
+
+//Pour les slides
+Route::get('/ajouter-slide','SlideController@index');
+Route::post('/sauvegarder-slide','SlideController@sauvegarder_slide');
+Route::get('/toute-slide','SlideController@toute_slide');
+Route::get('/inactive-slide/{slide_id}','SlideController@inactive_slide');
+Route::get('/active-slide/{slide_id}','SlideController@active_slide');
+Route::get('/edit-slide/{slide_id}','SlideController@edit_slide');
+Route::post('/modifier-slide/{slide_id}','SlideController@modifier_slide');
+Route::get('/delete-slide/{slide_id}','SlideController@delete_slide');

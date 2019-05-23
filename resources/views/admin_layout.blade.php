@@ -350,6 +350,15 @@
 								
 							</ul>	
 						</li>
+
+						<li>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Slider</span><span class="label label-important">Nouveau</span></a>
+							<ul>
+								<li><a class="submenu" href="{{URL::to('/ajouter-slide')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">Ajouter un slide</span></a></li>
+								<li><a class="submenu" href="{{URL::to('/toute-slide')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">Toute les slides</span></a></li>
+								
+							</ul>	
+						</li>
 						<li><a href="form.html"><i class="icon-edit"></i><span class="hidden-tablet">Slider</span></a></li>
 						<li><a href="chart.html"><i class="icon-list-alt"></i><span class="hidden-tablet"> Social Link</span></a></li>
 						<li><a href="typography.html"><i class="icon-font"></i><span class="hidden-tablet"> Shop name</span></a></li>

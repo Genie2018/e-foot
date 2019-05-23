@@ -148,52 +148,31 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div id="slider-carousel" class="carousel slide" data-ride="carousel">
+                        <?php 
+                             $toute_slide_info=DB::table('table_slide')
+                             ->where('publication_status',1)
+                             ->get();
+                            ?>
                         <ol class="carousel-indicators">
-                            <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#slider-carousel" data-slide-to="1"></li>
-                            <li data-target="#slider-carousel" data-slide-to="2"></li>
-                        </ol>
-                        
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <div class="col-sm-6">
-                                    <h1><span>E</span>-SHOPPER</h1>
-                                    <h2>Free E-Commerce Template</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                    <button type="button" class="btn btn-default get">Get it now</button>
-                                </div>
-                                <div class="col-sm-6">
-                                    <img src="{{asset('frontend/images/home/girl1.jpg')}}" class="girl img-responsive" alt="" />
-                                    <img src="{{asset('frontend/images/home/pricing.png')}}"  class="pricing" alt="" />
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="col-sm-6">
-                                    <h1><span>E</span>-SHOPPER</h1>
-                                    <h2>100% Responsive Design</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                    <button type="button" class="btn btn-default get">Get it now</button>
-                                </div>
-                                <div class="col-sm-6">
-                                    <img src="{{asset('frontend/images/home/girl2.jpg')}}" class="girl img-responsive" alt="" />
-                                    <img src="{{asset('frontend/images/home/pricing.png')}}"  class="pricing" alt="" />
-                                </div>
-                            </div>
                             
-                            <div class="item">
-                                <div class="col-sm-6">
-                                    <h1><span>E</span>-SHOPPER</h1>
-                                    <h2>Free Ecommerce Template</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                    <button type="button" class="btn btn-default get">Get it now</button>
-                                </div>
-                                <div class="col-sm-6">
-                                    <img src="{{asset('frontend/images/home/girl3.jpg')}}" class="girl img-responsive" alt="" />
-                                    <img src="{{asset('frontend/images/home/pricing.png')}}" class="pricing" alt="" />
-                                </div>
+                            @foreach($toute_slide_info as $v_slide)
+                            
+                            <li data-target="#slider-carousel" data-slide-to="{{$loop->index}}" class="{{$loop->first ? 'active' : ''}}"></li>
+                            @endforeach
+                         </ol>
+                           
+                        
+                        <div class="carousel-inner" role="listbox">
+                            @foreach($toute_slide_info as $v_slide)
+                            <div class="item {{$loop->first ? ' active' : ''}}">
+                                                              
+                            <img src="{{URL::to($v_slide->slide_image)}}" style="width: 35%; height: 100pz;"/>                       
+                            
                             </div>
+                            @endforeach
                             
                         </div>
+                        
                         
                         <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
                             <i class="fa fa-angle-left"></i>
