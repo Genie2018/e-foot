@@ -347,6 +347,7 @@
 							<ul>
 								<li><a class="submenu" href="{{URL::to('/ajouter-produit')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">Ajouter produit</span></a></li>
 								<li><a class="submenu" href="{{URL::to('/tous-produit')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">Tous les produits</span></a></li>
+								<li><a class="submenu" href="{{URL::to('/activation-produit')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">Activation des produits</span></a></li>
 								
 							</ul>	
 						</li>

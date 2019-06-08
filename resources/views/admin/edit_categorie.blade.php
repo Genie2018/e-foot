@@ -47,7 +47,7 @@
 							<div class="control-group hidden-phone">
 							  <label class="control-label" for="textarea2">categorie description</label>
 							  <div class="controls">
-								<textarea class="cleditor" name="categorie_description" value="">{{$categorie_info->categorie_description}}</textarea>
+								<input type="text" class="input-xlarge" name="categorie_description" value="{{$categorie_info->categorie_description}}">
 							  </div>
 							</div>
 							

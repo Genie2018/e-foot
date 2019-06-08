@@ -15,14 +15,16 @@ class HomeController extends Controller
     public function index()
     {
         $tous_produit_publication=DB::table('table_produit')
-                        ->join('table_categorie','table_produit.categorie_id','=','table_categorie.categorie_id')
-                        ->join('table_fournisseur','table_produit.fournisseur_id','=','table_fournisseur.fournisseur_id')
-                        ->limit(9)
-                        ->get();
-        $manage_produit_publication=view('pages.home_content')
+                    ->join('table_categorie','table_produit.categorie_id','=','table_categorie.categorie_id')
+                    ->join('table_fournisseur','table_produit.fournisseur_id','=','table_fournisseur.fournisseur_id')
+                    ->select('table_produit.*','table_categorie.categorie_nom','table_fournisseur.fournisseur_nom')     
+                    ->where('table_produit.publication_status',1)
+                    ->limit(9)
+                    ->get();
+        $manage_produit=view('pages.home_content')
             ->with('tous_produit_publication',$tous_produit_publication);
 
-        return view('layout')->with('pages.home_content',$manage_produit_publication);
+        return view('layout')->with('pages.home_content',$manage_produit);
     }
 
     /**
@@ -30,9 +32,18 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function produit_par_categorie($categorie_id)
     {
-        //
+     $produit_par_categorie=DB::table('table_produit')
+                       ->join('table_categorie','table_produit.categorie_id','=','table_categorie.categorie_id')
+                       ->select('table_produit.*','table_categorie.categorie_nom')
+                       ->where('table_categorie.categorie_id',$categorie_id)
+                       ->limit(12)
+                       ->get();
+        $manage_produit_par_categorie=view('pages.produit_par_categorie')
+            ->with('produit_par_categorie',$produit_par_categorie);
+
+        return view('layout')->with('pages.produit_par_categorie',$manage_produit_par_categorie);   
     }
 
     /**
@@ -41,9 +52,19 @@ class HomeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function produit_par_fournisseur($fournisseur_id)
     {
-        //
+      $produit_par_fournisseur=DB::table('table_produit')
+                    ->join('table_categorie','table_produit.categorie_id','=','table_categorie.categorie_id')
+                    ->join('table_fournisseur','table_produit.fournisseur_id','=','table_fournisseur.fournisseur_id')
+                    ->select('table_produit.*','table_categorie.categorie_nom','table_fournisseur.fournisseur_nom')     
+                    ->where('table_fournisseur.fournisseur_id',$fournisseur_id)
+                    ->limit(9)
+                    ->get();
+        $manage_produit_par_fournisseur=view('pages.produit_par_fournisseur')
+            ->with('produit_par_fournisseur',$produit_par_fournisseur);
+
+        return view('layout')->with('pages.produit_par_fournisseur',$manage_produit_par_fournisseur);
     }
 
     /**
@@ -52,9 +73,19 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function produit_detail_par_id($produit_id)
     {
-        //
+     $produit_detail=DB::table('table_produit')
+                    ->join('table_categorie','table_produit.categorie_id','=','table_categorie.categorie_id')
+                    ->join('table_fournisseur','table_produit.fournisseur_id','=','table_fournisseur.fournisseur_id')
+                    ->select('table_produit.*','table_categorie.categorie_nom','table_fournisseur.fournisseur_nom')     
+                    ->where('table_produit.produit_id',$produit_id)
+                    ->where('table_produit.publication_status',1)
+                    ->first();
+        $manage_produit_detail=view('pages.produit_detail')
+            ->with('produit_detail',$produit_detail);
+
+        return view('layout')->with('pages.produit_detail',$manage_produit_detail);   
     }
 
     /**

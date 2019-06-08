@@ -47,7 +47,7 @@
 							<div class="control-group hidden-phone">
 							  <label class="control-label" for="textarea2">fournisseur description</label>
 							  <div class="controls">
-								<textarea class="cleditor" name="fournisseur_description" value="">{{$fournisseur_info->fournisseur_description}}</textarea>
+								<input type="text" class="input-xlarge" name="fournisseur_nom" value="{{$fournisseur_info->fournisseur_description}}">
 							  </div>
 							</div>
 							

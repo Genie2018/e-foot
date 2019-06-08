@@ -17,7 +17,7 @@ class CreateTableFournisseurTable extends Migration
             $table->increments('fournisseur_id');
             $table->string('fournisseur_nom');
             $table->string('fournisseur_description');
-            $table->integer('publication_status');
+            $table->integer('publication_status')->nullable();
             $table->timestamps();
         });
     }

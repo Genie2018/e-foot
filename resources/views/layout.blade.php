@@ -89,7 +89,7 @@
                                 <li><a href=""><i class="fa fa-user"></i> Compte</a></li>
                                 <li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
                                 <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                                <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                                <li><a href="{{URL::to('/voir-panier')}}"><i class="fa fa-shopping-cart"></i> Panier</a></li>
                                 <li><a href="login.html"><i class="fa fa-lock"></i> Se connecter</a></li>
                             </ul>
                         </div>
@@ -166,7 +166,7 @@
                             @foreach($toute_slide_info as $v_slide)
                             <div class="item {{$loop->first ? ' active' : ''}}">
                                                               
-                            <img src="{{URL::to($v_slide->slide_image)}}" style="width: 35%; height: 100pz;"/>                       
+                            <img src="{{URL::to($v_slide->slide_image)}}" style="width: 25%; height: 100pz;"/>                       
                             
                             </div>
                             @endforeach
@@ -204,7 +204,7 @@
                                        foreach($toute_publication_categorie as $v_categorie){?>   
                                 <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><a href="#">{{$v_categorie->categorie_nom}}</a></h4>
+                                    <h4 class="panel-title"><a href="{{URL::to('/produit_par_categorie/'.$v_categorie->categorie_id)}}">{{$v_categorie->categorie_nom}}</a></h4>
                                 </div>
                             </div>
                              <?php } ?>
@@ -224,7 +224,7 @@
                                         ->get();
                             
                                        foreach($toute_publication_fournisseur as $v_fournisseur){?> 
-                                    <li><a href="#"> <span class="pull-right">(50)</span>{{$v_fournisseur->fournisseur_nom}}</a></li>
+                                    <li><a href="{{URL::to('/produit_par_fournisseur/'.$v_fournisseur->fournisseur_id)}}"> <span class="pull-right">(50)</span>{{$v_fournisseur->fournisseur_nom}}</a></li>
                                     <?php } ?>
                                 </ul>
                             </div>

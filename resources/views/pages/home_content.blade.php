@@ -14,15 +14,16 @@
                                         <div class="product-overlay">
                                             <div class="overlay-content">
                                                 <h2>{{$v_produit_publication->produit_prix}} Franc CFA</h2>
-                                                <p>{{$v_produit_publication->produit_nom}}</p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                            <a href="{{URL::to('/voir_produit/'.$v_produit_publication->produit_id)}}">
+                                                <p>{{$v_produit_publication->produit_nom}}</p></a>
+                                                <a href="{{URL::to('/voir_produit/'.$v_produit_publication->produit_id)}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ajouter au panier</a>
                                             </div>
                                         </div>
                                 </div>
                                 <div class="choose">
                                     <ul class="nav nav-pills nav-justified">
-                                        <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-                                        <li><a href="#"><i class="fa fa-plus-square"></i>Voir produit</a></li>
+                                        <li><a href="#"><i class="fa fa-plus-square"></i>{{$v_produit_publication->fournisseur_nom}}</a></li>
+                                        <li><a href="{{URL::to('/voir_produit/'.$v_produit_publication->produit_id)}}"><i class="fa fa-plus-square"></i>Voir produit</a></li>
                                     </ul>
                                 </div>
                             </div>

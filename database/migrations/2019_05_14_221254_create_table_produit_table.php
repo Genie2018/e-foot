@@ -24,7 +24,7 @@ class CreateTableProduitTable extends Migration
             $table->string('produit_image');
             $table->string('produit_size');
             $table->string('produit_couleur');
-            $table->integer('publication_status');
+            $table->integer('publication_status')->nullable();
             
             $table->timestamps();
         });

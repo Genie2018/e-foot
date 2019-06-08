@@ -85,7 +85,35 @@ class ProduitController extends Controller
         return view('admin_layout')->with('admin.tous_produit',$manage_produit);
     }
 
+public function activation_produit()
+    {   $this->AdminAuthCheck();
+        $activation_produit_info=DB::table('table_produit')->get();
+        $activation_produit=view('admin.activation_produit')
+            ->with('activation_produit_info',$activation_produit_info);
 
+        return view('admin_layout')->with('admin.activation_produit',$activation_produit);
+    }
+
+
+public function inactive_produit_inactive($produit_id)
+    {
+        DB::table('table_produit')
+        ->where('produit_id',$produit_id)
+        ->update(['publication_status' => 0]);
+         Session::put('message','Produit 2 inactive avec sucess !!');
+
+        return Redirect::to('/activation-produit');
+    }
+
+    public function active_produit_active($produit_id)
+    {
+        DB::table('table_produit')
+        ->where('produit_id',$produit_id)
+        ->update(['publication_status' => 1]);
+         Session::put('message','Produit 2 active avec sucess !!');
+
+        return Redirect::to('/activation-produit');
+    }
     
     public function active_produit($produit_id)
     {
@@ -114,6 +142,39 @@ class ProduitController extends Controller
         ->where('produit_id',$produit_id)
         ->delete();
         Session::get('message','Produit supprimée avec succes');
+        return Redirect::to('/tous-produit');
+    }
+
+     public function edit_produit($produit_id)
+    {
+        $produit_info=DB::table('table_produit')
+            ->where('produit_id',$produit_id)
+            ->first();
+           $produit_info=view('admin.edit_produit')
+            ->with('produit_info',$produit_info);
+
+        return view('admin_layout')
+        ->with('admin.edit_produit',$produit_info);
+    }
+
+    public function modifier_produit(Request $request,$produit_id)
+    {
+        $data=array();
+        $data['produit_id']=$request->produit_id;
+        $data['produit_nom']=$request->produit_nom;
+        $data['categorie_id']=$request->categorie_id;
+        $data['fournisseur_id']=$request->fournisseur_id;        
+        $data['produit_court_desc']=$request->produit_court_desc;
+        $data['produit_long_desc']=$request->produit_long_desc;
+        $data['produit_prix']=$request->produit_prix;
+        $data['produit_size']=$request->produit_size;
+        $data['produit_couleur']=$request->produit_couleur;        
+        $data['publication_status']=$request->publication_status;
+
+        DB::table('table_produit')
+        ->where('produit_id',$produit_id)
+        ->update($data);
+        Session::get('message','produit modifiee avec succes');
         return Redirect::to('/tous-produit');
     }
 
