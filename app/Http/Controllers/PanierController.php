@@ -72,11 +72,7 @@ class PanierController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+   
 
     /**
      * Update the specified resource in storage.
@@ -85,9 +81,12 @@ class PanierController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update_panier(Request $request)
     {
-        //
+        $qty=$request->qty;
+        $rowId=$request->rowId;
+        Cart::update($rowId,$qty);
+        return Redirect::to('/voir-panier');
     }
 
     /**

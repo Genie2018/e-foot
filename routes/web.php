@@ -78,4 +78,4 @@ Route::get('/voir_produit/{produit_id}','HomeController@produit_detail_par_id');
 Route::post('/ajouter-au-panier','PanierController@ajouter_au_panier');
 Route::get('/voir-panier','PanierController@voir_panier');
 Route::get('/supprimer-panier/{rowId}','PanierController@supprimer_panier');
-
+Route::post('/update-panier','PanierController@update_panier');
