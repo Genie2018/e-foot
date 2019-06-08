@@ -49,7 +49,7 @@
 								<p class="cart_total_price">{{$content->total}}</p>
 							</td>
 							<td class="cart_delete">
-								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+								<a class="cart_quantity_delete" href="{{URL::to('/supprimer-panier/'.$content->rowId)}}"><i class="fa fa-times"></i></a>
 							</td>
 						</tr>
 						<?php }?>
@@ -72,9 +72,7 @@
 				<div class="col-sm-6">
 					<div class="total_area">
 						<ul>
-							<li>Cart Sub Total <span>{{Cart::subtotal()}}</span></li>
-							<li>Eco Tax <span>{{Cart::tax()}}</span></li>
-							<li>Shipping Cost <span>Free</span></li>
+							
 							<li>Total <span>{{Cart::total()}}</span></li>
 						</ul>
 							<a class="btn btn-default update" href="">Update</a>

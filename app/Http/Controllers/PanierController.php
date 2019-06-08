@@ -53,10 +53,7 @@ class PanierController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
+   
 
     /**
      * Display the specified resource.
@@ -64,9 +61,10 @@ class PanierController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function supprimer_panier($rowId)
     {
-        //
+        Cart::update($rowId,0);
+        return Redirect::to('/voir-panier');
     }
 
     /**
