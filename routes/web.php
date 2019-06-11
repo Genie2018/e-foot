@@ -79,3 +79,6 @@ Route::post('/ajouter-au-panier','PanierController@ajouter_au_panier');
 Route::get('/voir-panier','PanierController@voir_panier');
 Route::get('/supprimer-panier/{rowId}','PanierController@supprimer_panier');
 Route::post('/update-panier','PanierController@update_panier');
+
+//checkout route
+Route::get('/checkout-login','checkoutController@checkout_login');
