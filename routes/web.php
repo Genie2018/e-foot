@@ -12,6 +12,7 @@
 */
 //Frontend site ..........
 Route::get('/','HomeController@index');
+Route::get('/accueil','HomeController@index');
 
 
 
@@ -80,5 +81,12 @@ Route::get('/voir-panier','PanierController@voir_panier');
 Route::get('/supprimer-panier/{rowId}','PanierController@supprimer_panier');
 Route::post('/update-panier','PanierController@update_panier');
 
-//checkout route
-Route::get('/checkout-login','checkoutController@checkout_login');
+//commander et log client routes
+Route::get('/commander-login','CommanderController@commander_login');
+Route::get('/commander','CommanderController@commander');
+Route::post('/inscription-client','CommanderController@inscription_client');
+Route::post('/save-detail-commande','CommanderController@save_detail_commande');
+
+//client connexion et deconnection
+Route::post('/connexion-client','CommanderController@connexion_client');
+Route::get('/deconnexion-client','CommanderController@deconnexion_client');

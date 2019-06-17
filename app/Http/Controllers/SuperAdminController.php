@@ -6,7 +6,7 @@ use DB;
 use App\Http\Requests;
 use Session;
 use Illuminate\Support\Facades\Redirect;
-session_start();
+//session_start();
 
 class SuperAdminController extends Controller
 {

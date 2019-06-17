@@ -88,9 +88,22 @@
                             <ul class="nav navbar-nav">
                                 <li><a href=""><i class="fa fa-user"></i> Compte</a></li>
                                 <li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
-                                <li><a href="{{URL::to('/checkout-login')}}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+                                 <?php 
+                                $client_id=Session::get('client_id');
+                                ?>
+                                <?php if($client_id !=NULL){?>
+                                 <li><a href="{{URL::to('/commander')}}"><i class="fa fa-crosshairs"></i> commander</a></li>
+                                <?php }else{?>
+                                <li><a href="{{URL::to('/commander-login')}}"><i class="fa fa-crosshairs"></i> commander</a></li>
+                                 <?php } ?>
+                                
                                 <li><a href="{{URL::to('/voir-panier')}}"><i class="fa fa-shopping-cart"></i> Panier</a></li>
-                                <li><a href="login.html"><i class="fa fa-lock"></i> Se connecter</a></li>
+                               
+                                <?php if($client_id !=NULL){?>
+                                <li><a href="{{URL::to('/deconnexion-client')}}"><i class="fa fa-lock"></i> Se deconnecter</a></li>
+                                <?php }else{?>
+                                <li><a href="{{URL::to('/commander-login')}}"><i class="fa fa-lock"></i> Se connecter</a></li>
+                                <?php } ?>
                             </ul>
                         </div>
                     </div>
@@ -112,12 +125,12 @@
                         </div>
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
-                                <li><a href="index.html" class="active">Accueil</a></li>
+                                <li><a href="{{URL::to('/accueil')}}" class="active">Accueil</a></li>
                                 <li class="dropdown"><a href="#">Boutique<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="shop.html">fournisseurs</a></li>
                                         <li><a href="product-details.html">Details fournisseurs</a></li> 
-                                        <li><a href="{{URL::to('/checkout-login')}}">Checkout</a></li> 
+                                        <li><a href="{{URL::to('/commander-login')}}">commander</a></li> 
                                         <li><a href="cart.html">Cart</a></li> 
                                         <li><a href="login.html">Se connecter</a></li> 
                                     </ul>

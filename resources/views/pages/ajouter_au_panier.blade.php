@@ -71,20 +71,30 @@
 				<p>Choose if you have a discount code or reward points you want to use or would like to estimate your delivery cost.</p>
 			</div>
 			<div class="row">
-				<div class="col-sm-6">
-
-				<div class="col-sm-6">
+				
+				<div class="col-sm-8">
 					<div class="total_area">
 						<ul>
 							
 							<li>Total <span>{{Cart::total()}}</span></li>
 						</ul>
 							<a class="btn btn-default update" href="">Update</a>
-							<a class="btn btn-default check_out" href="{{URL::to('/checkout-login')}}">Check Out</a>
+
+							 <?php 
+                                $client_id=Session::get('client_id');
+                                ?>
+
+							<?php if($client_id !=NULL){?>
+                                 <li><a href="{{URL::to('/commander')}}"><i class="btn btn-default update">commander</i> </a></li>
+                                <?php }else{?>
+                                <li><a href="{{URL::to('/commander-login')}}"><i class="btn btn-default commander">commander</i> </a></li>
+                                 <?php } ?>
+						
+
 					</div>
 				</div>
 			</div>
-		</div>
+		
 	</section><!--/#do_action-->
 
 
