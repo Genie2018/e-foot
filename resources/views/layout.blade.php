@@ -90,12 +90,16 @@
                                 <li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
                                  <?php 
                                 $client_id=Session::get('client_id');
+                                $commander_id=Session::get('commander_id');
                                 ?>
-                                <?php if($client_id !=NULL){?>
+                                <?php if($client_id !=NULL && $commander_id==NULL){?>
                                  <li><a href="{{URL::to('/commander')}}"><i class="fa fa-crosshairs"></i> commander</a></li>
-                                <?php }else{?>
-                                <li><a href="{{URL::to('/commander-login')}}"><i class="fa fa-crosshairs"></i> commander</a></li>
-                                 <?php } ?>
+                                <?php }elseif($client_id !=NULL && $commander_id !=NULL){?>
+                                <li><a href="{{URL::to('/payement')}}"><i class="fa fa-crosshairs"></i>Payement</a></li>
+                                 <?php }else{?>
+                             <li><a href="{{URL::to('/commander-login')}}"><i class="fa fa-crosshairs"></i>Commander</a></li>
+
+                                 <?php }?>
                                 
                                 <li><a href="{{URL::to('/voir-panier')}}"><i class="fa fa-shopping-cart"></i> Panier</a></li>
                                

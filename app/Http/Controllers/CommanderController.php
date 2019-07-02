@@ -7,7 +7,7 @@ use DB;
 use App\Http\Requests;
 use Session;
 use Illuminate\Support\Facades\Redirect;
-
+use Cart;
 class CommanderController extends Controller
 {
     /**
@@ -51,6 +51,13 @@ class CommanderController extends Controller
      */
     public function commander()
     {
+      /* $toute_categorie_info=DB::table('table_categorie')
+                            ->where('publication_status',1)
+                            ->get();
+        $manage_categorie=view('pages.payement')
+            ->with('toute_categorie_info',$toute_categorie_info);
+
+        return view('layout')->with('pages.payement',$manage_categorie);*/
         return view('pages.commander');
     }
 
@@ -83,7 +90,7 @@ class CommanderController extends Controller
                 ->where('client_email',$client_email)
                 ->where('client_password',$client_password)
                 ->first();
-                if (result) {
+                if ($result) {
                     Session::put('client_id',$result->client_id);
                     return Redirect::to('/commander');
                 }else{
@@ -96,4 +103,73 @@ class CommanderController extends Controller
         Session::flush();
         return Redirect::to('/');
     }
+
+
+
+    public function payement()
+    {
+        return view('pages.payement');
+    }
+
+public function merci()
+    {
+        return view('pages.merci');
+    }
+
+    public function valider_payement(Request $request)
+    {
+     $vdata=array();
+     $vdata['client_id']=Session::get('client_id');
+     $vdata['commander_id']=Session::get('commander_id');
+     $vdata['order_total']=Cart::total();
+     $order_id=DB::table('table_order')
+        ->insertGetId($vdata);
+        $contents=Cart::content();
+        $vddata=array();
+
+        foreach ($contents as $v_content) {
+            $vddata['order_id']=$order_id;
+            $vddata['produit_id']=$v_content->id;
+            $vddata['produit_nom']=$v_content->name;
+            $vddata['produit_prix']=$v_content->price;
+            $vddata['produit_quantite']=$v_content->qty;
+
+            DB::table('table_order_details')
+                ->insert($vddata);
+
+        }
+        if ($vdata && $vddata) {
+            return Redirect::to('/merci-client');
+        }
+        else{
+               return Redirect::to('/payement');
+         }
+        
+    }
+
+    public function payement_boutique()
+    {
+        $tous_payement_info=DB::table('table_order')
+                        ->join('table_client','table_order.client_id','=','table_client.client_id')
+                        ->select('table_order.*','table_client.client_nom')
+                        ->get();
+        $manage_payement=view('admin.payement_boutique')
+            ->with('tous_payement_info',$tous_payement_info);
+
+        return view('admin_layout')->with('admin.payement_boutique',$manage_payement);
+    }
+
+    public function voir_commande(){
+        $tous_commande_info=DB::table('table_order')
+                        ->join('table_client','table_order.client_id','=','table_client.client_id')
+                        ->join('table_order_details','table_order.order_id','=','table_order_details.order_id')
+                        ->join('table_commander','table_order.commander_id','=','table_commander.commander_id')
+    ->select('table_order.*','table_order_details.*','table_commander.*','table_client.*')
+                        ->first();
+        $manage_commande=view('admin.voir_commande')
+            ->with('tous_commande_info',$tous_commande_info);
+
+        return view('admin_layout')->with('admin.voir_commande',$manage_commande);
+    }
+
 }

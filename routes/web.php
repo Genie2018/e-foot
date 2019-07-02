@@ -90,3 +90,15 @@ Route::post('/save-detail-commande','CommanderController@save_detail_commande');
 //client connexion et deconnection
 Route::post('/connexion-client','CommanderController@connexion_client');
 Route::get('/deconnexion-client','CommanderController@deconnexion_client');
+
+
+Route::get('/payement','CommanderController@payement');
+Route::post('/valider-payement','CommanderController@valider_payement');
+
+//Ma boutique
+Route::get('/payement-boutique','CommanderController@payement_boutique');
+
+Route::get('/merci-client','CommanderController@merci');
+
+Route::get('/voir-commande/{order_id}','CommanderController@voir_commande');
+

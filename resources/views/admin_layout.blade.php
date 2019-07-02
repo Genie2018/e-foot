@@ -360,7 +360,7 @@
 								
 							</ul>	
 						</li>
-						<li><a href="form.html"><i class="icon-edit"></i><span class="hidden-tablet">Slider</span></a></li>
+						<li><a href="{{URL::to('/payement-boutique')}}"><i class="icon-edit"></i><span class="hidden-tablet">Ma boutique</span></a></li>
 						<li><a href="chart.html"><i class="icon-list-alt"></i><span class="hidden-tablet"> Social Link</span></a></li>
 						<li><a href="typography.html"><i class="icon-font"></i><span class="hidden-tablet"> Shop name</span></a></li>
 						<li><a href="gallery.html"><i class="icon-picture"></i><span class="hidden-tablet">Delivery man</span></a></li>
