@@ -38,28 +38,28 @@ Route::get('/edit-categorie/{categorie_id}','CategorieController@edit_categorie'
 Route::post('/modifier-categorie/{categorie_id}','CategorieController@modifier_categorie');
 Route::get('/delete-categorie/{categorie_id}','CategorieController@delete_categorie');
 
-//fournisseur
-Route::get('/ajouter-fournisseur','FournisseurController@index');
-Route::post('/sauvegarder-fournisseur','FournisseurController@sauvegarder_fournisseur');
-Route::get('/tous-fournisseur','FournisseurController@tous_fournisseur');
-Route::get('/inactive-fournisseur/{fournisseur_id}','FournisseurController@inactive_fournisseur');
-Route::get('/active-fournisseur/{fournisseur_id}','FournisseurController@active_fournisseur');
-Route::get('/edit-fournisseur/{fournisseur_id}','FournisseurController@edit_fournisseur');
-Route::post('/modifier-fournisseur/{fournisseur_id}','FournisseurController@modifier_fournisseur');
-Route::get('/delete-fournisseur/{fournisseur_id}','FournisseurController@delete_fournisseur');
+//Lieu
+Route::get('/ajouter-lieu','LieuController@index');
+Route::post('/sauvegarder-lieu','LieuController@sauvegarder_lieu');
+Route::get('/tous-lieu','LieuController@tous_lieu');
+Route::get('/inactive-lieu/{lieu_id}','LieuController@inactive_lieu');
+Route::get('/active-lieu/{lieu_id}','LieuController@active_lieu');
+Route::get('/edit-lieu/{lieu_id}','LieuController@edit_lieu');
+Route::post('/modifier-lieu/{lieu_id}','LieuController@modifier_lieu');
+Route::get('/delete-lieu/{lieu_id}','LieuController@delete_lieu');
 
-//produit Routes
-Route::get('/ajouter-produit','ProduitController@index');
-Route::post('/sauvegarder-produit','ProduitController@sauvegarder_produit');
-Route::get('/tous-produit','ProduitController@tous_produit');
-Route::get('/inactive-produit/{produit_id}','ProduitController@inactive_produit');
-Route::get('/active-produit/{produit_id}','ProduitController@active_produit');
-Route::get('/edit-produit/{produit_id}','ProduitController@edit_produit');
-Route::post('/modifier-produit/{produit_id}','ProduitController@modifier_produit');
-Route::get('/delete-produit/{produit_id}','ProduitController@delete_produit');
-Route::get('/activation-produit','ProduitController@activation_produit');
-Route::get('/inactive-produit_inactive/{produit_id}','ProduitController@inactive_produit_inactive');
-Route::get('/active-produit_active/{produit_id}','ProduitController@active_produit_active');
+//Terrain Routes
+Route::get('/ajouter-terrain','TerrainController@index');
+Route::post('/sauvegarder-terrain','TerrainController@sauvegarder_terrain');
+Route::get('/tous-terrain','TerrainController@tous_terrain');
+Route::get('/inactive-terrain/{terrain_id}','TerrainController@inactive_terrain');
+Route::get('/active-terrain/{terrain_id}','TerrainController@active_terrain');
+Route::get('/edit-terrain/{terrain_id}','TerrainController@edit_terrain');
+Route::post('/modifier-terrain/{terrain_id}','TerrainController@modifier_terrain');
+Route::get('/delete-terrain/{terrain_id}','TerrainController@delete_terrain');
+Route::get('/activation-terrain','TerrainController@activation_terrain');
+Route::get('/inactive-terrain_inactive/{terrain_id}','TerrainController@inactive_terrain_inactive');
+Route::get('/active-terrain_active/{terrain_id}','TerrainController@active_terrain_active');
 //Pour les slides
 Route::get('/ajouter-slide','SlideController@index');
 Route::post('/sauvegarder-slide','SlideController@sauvegarder_slide');
@@ -70,10 +70,10 @@ Route::get('/edit-slide/{slide_id}','SlideController@edit_slide');
 Route::post('/modifier-slide/{slide_id}','SlideController@modifier_slide');
 Route::get('/delete-slide/{slide_id}','SlideController@delete_slide');
 
-//Routes pour les produits par catégorie et par fournisseur
-Route::get('/produit_par_categorie/{categorie_id}','HomeController@produit_par_categorie');
-Route::get('/produit_par_fournisseur/{fournisseur_id}','HomeController@produit_par_fournisseur');
-Route::get('/voir_produit/{produit_id}','HomeController@produit_detail_par_id');
+//Routes pour les terrains par catégorie et par lieu
+Route::get('/terrain_par_categorie/{categorie_id}','HomeController@terrain_par_categorie');
+Route::get('/terrain_par_lieu/{lieu_id}','HomeController@terrain_par_lieu');
+Route::get('/voir_terrain/{terrain_id}','HomeController@terrain_detail_par_id');
 
 //Ajout au panier
 Route::post('/ajouter-au-panier','PanierController@ajouter_au_panier');

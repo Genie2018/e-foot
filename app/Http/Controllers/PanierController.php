@@ -16,15 +16,15 @@ class PanierController extends Controller
     public function ajouter_au_panier(Request $request)
     {
         $qty=$request->qty;
-        $produit_id=$request->produit_id;
-        $produit_info=DB::table('table_produit')
-                      ->where('produit_id',$produit_id)
+        $terrain_id=$request->terrain_id;
+        $terrain_info=DB::table('table_terrain')
+                      ->where('terrain_id',$terrain_id)
                       ->first();
         $data['qty']=$qty;
-        $data['id']=$produit_info->produit_id;
-        $data['name']=$produit_info->produit_nom;
-        $data['price']=$produit_info->produit_prix;
-        $data['options']['image']=$produit_info->produit_image;
+        $data['id']=$terrain_info->terrain_id;
+        $data['name']=$terrain_info->terrain_nom;
+        $data['price']=$terrain_info->terrain_prix;
+        $data['options']['image']=$terrain_info->terrain_image;
 
         Cart::add($data);
         return Redirect::to('/voir-panier');
@@ -66,6 +66,8 @@ class PanierController extends Controller
         Cart::update($rowId,0);
         return Redirect::to('/voir-panier');
     }
+
+    
 
     /**
      * Show the form for editing the specified resource.

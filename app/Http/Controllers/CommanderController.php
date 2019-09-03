@@ -129,10 +129,10 @@ public function merci()
 
         foreach ($contents as $v_content) {
             $vddata['order_id']=$order_id;
-            $vddata['produit_id']=$v_content->id;
-            $vddata['produit_nom']=$v_content->name;
-            $vddata['produit_prix']=$v_content->price;
-            $vddata['produit_quantite']=$v_content->qty;
+            $vddata['terrain_id']=$v_content->id;
+            $vddata['terrain_nom']=$v_content->name;
+            $vddata['terrain_prix']=$v_content->price;
+            //$vddata['produit_quantite']=$v_content->qty;
 
             DB::table('table_order_details')
                 ->insert($vddata);

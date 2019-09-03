@@ -32,22 +32,20 @@
 						  <thead>
 
 							  <tr>
-								  <th>fournisseur ID</th>
-								  <th>fournisseur Nom</th>
-								  <th>fournisseur Description</th>
+								  <th> ID</th>
+								  <th>Lieu</th>
 								  <th>Status</th>
 								  <th>Actions</th>
 							  </tr>
 						  </thead>
-						  @foreach($tous_fournisseur_info as $v_fournisseur)   
+						  @foreach($tous_lieu_info as $v_lieu)   
 						  <tbody>
 							<tr>
-								<td>{{$v_fournisseur->fournisseur_id}}</td>
-								<td class="center">{{$v_fournisseur->fournisseur_nom}}</td>
-								<td class="center">{{$v_fournisseur->fournisseur_description}}</td>
+								<td>{{$v_lieu->lieu_id}}</td>
+								<td class="center">{{$v_lieu->lieu_nom}}</td>
 								
 								<td class="center">
-								@if($v_fournisseur->publication_status==1)
+								@if($v_lieu->publication_status==1)
 									<span class="label label-success">Active</span>
 								
 								@else
@@ -55,19 +53,19 @@
 								@endif
 								</td>
 								<td class="center">
-									@if($v_fournisseur->publication_status==1)
-									<a class="btn btn-danger" href="{{URL::to('/inactive-fournisseur/'.$v_fournisseur->fournisseur_id)}}">
+									@if($v_lieu->publication_status==1)
+									<a class="btn btn-danger" href="{{URL::to('/inactive-lieu/'.$v_lieu->lieu_id)}}">
 										<i class="halflings-icon white thumbs-down"></i>  
 									</a>
 									@else
-									<a class="btn btn-success" href="{{URL::to('/active-fournisseur/'.$v_fournisseur->fournisseur_id)}}">
+									<a class="btn btn-success" href="{{URL::to('/active-lieu/'.$v_lieu->lieu_id)}}">
 										<i class="halflings-icon white thumbs-up"></i>  
 									</a>
 									@endif
-									<a class="btn btn-info" href="{{URL::to('/edit-fournisseur/'.$v_fournisseur->fournisseur_id)}}">
+									<a class="btn btn-info" href="{{URL::to('/edit-lieu/'.$v_lieu->lieu_id)}}">
 										<i class="halflings-icon white edit"></i>  
 									</a>
-									<a class="btn btn-danger" href="{{URL::to('/delete-fournisseur/'.$v_fournisseur->fournisseur_id)}}" id="delete">
+									<a class="btn btn-danger" href="{{URL::to('/delete-lieu/'.$v_lieu->lieu_id)}}" id="delete">
 										<i class="halflings-icon white trash"></i> 
 									</a>
 								</td>

@@ -10,14 +10,14 @@
 				</li>
 				<li>
 					<i class="icon-edit"></i>
-					<a href="#">Ajouter une categorie</a>
+					<a href="#">Modififer un lieu</a>
 				</li>
 			</ul>
 			
 			<div class="row-fluid sortable">
 				<div class="box span12">
 					<div class="box-header" data-original-title>
-						<h2><i class="halflings-icon edit"></i><span class="break"></span>Votre &nbsp</h2>
+						<h2><i class="halflings-icon edit"></i><span class="break"></span>Modifier un lieu</h2>
 						
 							<p class="alert-success">
 								<?php
@@ -33,28 +33,21 @@
 								
 					</div>
 					<div class="box-content">
-						<form class="form-horizontal" action="{{url('/sauvegarder-categorie')}}" method="post">
+						<form class="form-horizontal" action="{{url('/modifier-lieu',$lieu_info->lieu_id)}}" method="post">
 							{{ csrf_field() }}
 						  <fieldset>
 							
 							<div class="control-group">
-							  <label class="control-label" for="date01">Surface</label>
+							  <label class="control-label" for="date01">lieu</label>
 							  <div class="controls">
-								<input type="text" class="input-xlarge" name="categorie_surface" required="">
+								<input type="text" class="input-xlarge" name="lieu_nom" value="{{$lieu_info->lieu_nom}}">
 							  </div>
 							</div>
-					
+					      
 							
-							<div class="control-group hidden-phone">
-							  <label class="control-label" for="textarea2">Publication status</label>
-							  <div class="controls">
-								<input type="checkbox" name="publication_status" value="1">
-							  </div>
-							</div>
-
+							
 							<div class="form-actions">
-							  <button type="submit" class="btn btn-primary">Ajouter categorie</button>
-							  <button type="reset" class="btn">Annuler</button>
+							  <button type="submit" class="btn btn-primary">Modifier le lieu</button>
 							</div>
 						  </fieldset>
 						</form>   

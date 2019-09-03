@@ -20,7 +20,7 @@
 							<td class="image">Image</td>
 							<td class="description">Description</td>
 							<td class="price">Prix</td>
-							<td class="quantity">Quantite</td>
+							<td class="quantity">Heure</td>
 							<td class="total">Total</td>
 							<td>Action</td>
 						</tr>

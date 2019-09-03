@@ -42,7 +42,7 @@
 						  <tbody>
 							<tr>
 								<td>{{$v_slide->slide_id}}</td>
-					<td class="center"><img src="{{$v_slide->slide_image}}" style="height: 80px; width: 80px;"></td>
+					<td class="center"><img src="{{$v_slide->slide_image}}" style="height: 80px; width: 200px;"></td>
 								<td class="center">
 								@if($v_slide->publication_status==1)
 									<span class="label label-success">Active</span>

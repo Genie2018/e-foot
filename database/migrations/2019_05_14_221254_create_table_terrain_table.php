@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableFournisseurTable extends Migration
+class CreateTableTerrainTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,15 @@ class CreateTableFournisseurTable extends Migration
      */
     public function up()
     {
-        Schema::create('table_fournisseur', function (Blueprint $table) {
-            $table->increments('fournisseur_id');
-            $table->string('fournisseur_nom');
-            $table->string('fournisseur_description');
+        Schema::create('table_terrain', function (Blueprint $table) {
+            $table->increments('terrain_id');
+            $table->string('terrain_nom');
+            $table->integer('categorie_id');
+            $table->integer('lieu_id');
+            $table->integer('terrain_prix');
+            $table->string('terrain _image');
             $table->integer('publication_status')->nullable();
+            
             $table->timestamps();
         });
     }
@@ -29,6 +33,6 @@ class CreateTableFournisseurTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_fournisseur');
+        Schema::dropIfExists('table_terrain');
     }
 }

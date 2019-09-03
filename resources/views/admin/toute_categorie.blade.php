@@ -33,8 +33,7 @@
 
 							  <tr>
 								  <th>Categorie ID</th>
-								  <th>Categorie Nom</th>
-								  <th>categorie Description</th>
+								  <th>Surface</th>
 								  <th>Status</th>
 								  <th>Actions</th>
 							  </tr>
@@ -43,8 +42,7 @@
 						  <tbody>
 							<tr>
 								<td>{{$v_categorie->categorie_id}}</td>
-								<td class="center">{{$v_categorie->categorie_nom}}</td>
-								<td class="center">{{$v_categorie->categorie_description}}</td>
+								<td class="center">{{$v_categorie->categorie_surface}}</td>
 								
 								<td class="center">
 								@if($v_categorie->publication_status==1)

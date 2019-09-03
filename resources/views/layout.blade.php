@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Accueil | E-wanter</title>
+    <title>Accueil | E-Foot</title>
     <link href="{{asset('frontend/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('frontend/css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('frontend/css/prettyPhoto.css')}}" rel="stylesheet">
@@ -62,16 +62,16 @@
                         <div class="btn-group pull-right clearfix">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                    USA
+                                    Tel
                                     <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li><a href="">Canada</a></li>
-                                    <li><a href="">UK</a></li>
+                                    <li><a href="">338452341</a></li>
+                                    <li><a href="">781113052</a></li>
                                 </ul>
                             </div>
                             
-                            <div class="btn-group">
+                            <!-- <div class="btn-group">
                                 <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
                                     DOLLAR
                                     <span class="caret"></span>
@@ -80,15 +80,16 @@
                                     <li><a href="">Canadian Dollar</a></li>
                                     <li><a href="">Pound</a></li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="col-md-8 clearfix">
                         <div class="shop-menu clearfix pull-right">
                             <ul class="nav navbar-nav">
-                                <li><a href=""><i class="fa fa-user"></i> Compte</a></li>
+                                <!-- <li><a href=""><i class="fa fa-user"></i> Compte</a></li>
                                 <li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
-                                 <?php 
+ -->
+                                  <?php 
                                 $client_id=Session::get('client_id');
                                 $commander_id=Session::get('commander_id');
                                 ?>
@@ -132,8 +133,8 @@
                                 <li><a href="{{URL::to('/accueil')}}" class="active">Accueil</a></li>
                                 <li class="dropdown"><a href="#">Boutique<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.html">fournisseurs</a></li>
-                                        <li><a href="product-details.html">Details fournisseurs</a></li> 
+                                        <li><a href="shop.html">lieus</a></li>
+                                        <li><a href="product-details.html">Details lieus</a></li> 
                                         <li><a href="{{URL::to('/commander-login')}}">commander</a></li> 
                                         <li><a href="cart.html">Cart</a></li> 
                                         <li><a href="login.html">Se connecter</a></li> 
@@ -167,8 +168,10 @@
             <div class="row">
                 <div class="col-sm-3">
                     <div class="left-sidebar">
-                        <h2>Category</h2>
-                        <div class="panel-group category-products" id="accordian"><!--category-productsr-->
+                       <!--
+                        <h2>Categorie</h2>
+                       
+                        <div class="panel-group category-products" id="accordian">
                             <div class="panel panel-default">
                                 
                            <?php 
@@ -179,7 +182,7 @@
                                        foreach($toute_publication_categorie as $v_categorie){?>   
                                 <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><a href="{{URL::to('/produit_par_categorie/'.$v_categorie->categorie_id)}}">{{$v_categorie->categorie_nom}}</a></h4>
+                                    <h4 class="panel-title"><a href="{{URL::to('/produit_par_categorie/'.$v_categorie->categorie_id)}}">{{$v_categorie->categorie_surface}}</a></h4>
                                 </div>
                             </div>
                              <?php } ?>
@@ -189,33 +192,33 @@
                         <!--/category-products-->
                     
                         <div class="brands_products"><!--brands_products-->
-                            <h2>Marques</h2>
+                            <h2>Zones</h2>
                             <div class="brands-name">
                                 <ul class="nav nav-pills nav-stacked">
 
                            <?php 
-                                $toute_publication_fournisseur=DB::table('table_fournisseur')
+                                $toute_publication_lieu=DB::table('table_lieu')
                                         ->where('publication_status',1)
                                         ->get();
                             
-                                       foreach($toute_publication_fournisseur as $v_fournisseur){?> 
-                                    <li><a href="{{URL::to('/produit_par_fournisseur/'.$v_fournisseur->fournisseur_id)}}"> <span class="pull-right">(50)</span>{{$v_fournisseur->fournisseur_nom}}</a></li>
+                                       foreach($toute_publication_lieu as $v_lieu){?> 
+                                    <li><a href="{{URL::to('/terrain_par_lieu/'.$v_lieu->lieu_id)}}"> <span class="pull-right"></span>{{$v_lieu->lieu_nom}}</a></li>
                                     <?php } ?>
                                 </ul>
                             </div>
                         </div><!--/brands_products-->
                         
-                        <div class="price-range"><!--price-range-->
+                        <!-- <div class="price-range">
                             <h2>Price Range</h2>
                             <div class="well text-center">
                                  <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
                                  <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
                             </div>
-                        </div><!--/price-range-->
+                        </div>
                         
-                        <div class="shipping text-center"><!--shipping-->
+                        <div class="shipping text-center">
                             <img src="images/home/shipping.jpg" alt="" />
-                        </div><!--/shipping-->
+                        </div> -->
                     
                     </div>
                 </div>
@@ -236,8 +239,8 @@
                 <div class="row">
                     <div class="col-sm-2">
                         <div class="companyinfo">
-                            <h2><span>e</span>-shopper</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
+                            <h2><span>e</span>-foot</h2>
+                            <p>La plateforme qui vous offre un servcice de loction de terrain trés efficace</p>
                         </div>
                     </div>
                     <div class="col-sm-7">
@@ -251,8 +254,8 @@
                                         <i class="fa fa-play-circle-o"></i>
                                     </div>
                                 </a>
-                                <p>Circle of Hands</p>
-                                <h2>24 DEC 2014</h2>
+                                <p>LETHAL</p>
+                                <h2>TECH</h2>
                             </div>
                         </div>
                         
@@ -266,8 +269,8 @@
                                         <i class="fa fa-play-circle-o"></i>
                                     </div>
                                 </a>
-                                <p>Circle of Hands</p>
-                                <h2>24 DEC 2014</h2>
+                                <p>etc...</p>
+                                <h2>etc...</h2>
                             </div>
                         </div>
                         
@@ -281,8 +284,8 @@
                                         <i class="fa fa-play-circle-o"></i>
                                     </div>
                                 </a>
-                                <p>Circle of Hands</p>
-                                <h2>24 DEC 2014</h2>
+                                <p>etc...</p>
+                                <h2>etc...</h2>
                             </div>
                         </div>
                         
@@ -296,15 +299,15 @@
                                         <i class="fa fa-play-circle-o"></i>
                                     </div>
                                 </a>
-                                <p>Circle of Hands</p>
-                                <h2>24 DEC 2014</h2>
+                                <p>etc...</p>
+                                <h2>etc...</h2>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="address">
                             <img src="{{URL::to('frontend/images/home/map.png')}}" alt="" />
-                            <p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
+                            <p>never give up</p>
                         </div>
                     </div>
                 </div>
@@ -318,38 +321,13 @@
                         <div class="single-widget">
                             <h2>Service</h2>
                             <ul class="nav nav-pills nav-stacked">
-                                <li><a href="#">Online Help</a></li>
-                                <li><a href="#">Contact Us</a></li>
-                                <li><a href="#">Order Status</a></li>
-                                <li><a href="#">Change Location</a></li>
-                                <li><a href="#">FAQ’s</a></li>
+                                <li><a href="#">Aide en lign</a></li>
+                                <li><a href="#">Contactez Nous</a></li>
+                                
                             </ul>
                         </div>
                     </div>
-                    <div class="col-sm-2">
-                        <div class="single-widget">
-                            <h2>Quock Shop</h2>
-                            <ul class="nav nav-pills nav-stacked">
-                                <li><a href="#">T-Shirt</a></li>
-                                <li><a href="#">Mens</a></li>
-                                <li><a href="#">Womens</a></li>
-                                <li><a href="#">Gift Cards</a></li>
-                                <li><a href="#">Shoes</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <div class="single-widget">
-                            <h2>Policies</h2>
-                            <ul class="nav nav-pills nav-stacked">
-                                <li><a href="#">Terms of Use</a></li>
-                                <li><a href="#">Privecy Policy</a></li>
-                                <li><a href="#">Refund Policy</a></li>
-                                <li><a href="#">Billing System</a></li>
-                                <li><a href="#">Ticket System</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    
                     <div class="col-sm-2">
                         <div class="single-widget">
                             <h2>About Shopper</h2>
@@ -362,16 +340,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-sm-3 col-sm-offset-1">
-                        <div class="single-widget">
-                            <h2>About Shopper</h2>
-                            <form action="#" class="searchform">
-                                <input type="text" placeholder="Your email address" />
-                                <button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
-                                <p>Get the most recent updates from <br />our site and be updated your self...</p>
-                            </form>
-                        </div>
-                    </div>
+                    
                     
                 </div>
             </div>
@@ -380,8 +349,8 @@
         <div class="footer-bottom">
             <div class="container">
                 <div class="row">
-                    <p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
-                    <p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
+                    <p class="pull-left">Copyright © 2019 E-FOOT Inc.Tpus droits réservés</p>
+                    <p class="pull-right">réalisé par <span><a target="_blank" href="http://www.themeum.com">Abdoul Aziz Kebe</a></span></p>
                 </div>
             </div>
         </div>

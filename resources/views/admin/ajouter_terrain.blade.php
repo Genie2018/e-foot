@@ -10,7 +10,7 @@
 				</li>
 				<li>
 					<i class="icon-edit"></i>
-					<a href="#">Ajouter une produit</a>
+					<a href="#">Ajouter une terrain</a>
 				</li>
 			</ul>
 			
@@ -33,94 +33,68 @@
 								
 					</div>
 					<div class="box-content">
-						<form class="form-horizontal" action="{{url('/sauvegarder-produit')}}" method="post" enctype="multipart/form-data">
+						<form class="form-horizontal" action="{{url('/sauvegarder-terrain')}}" method="post" enctype="multipart/form-data">
 							{{ csrf_field() }}
 						  <fieldset>
 							
 							<div class="control-group">
-							  <label class="control-label" for="date01">Nom du produit</label>
+							  <label class="control-label" for="date01">Nom du terrain</label>
 							  <div class="controls">
-								<input type="text" class="input-xlarge" name="produit_nom" required="">
+								<input type="text" class="input-xlarge" name="terrain_nom" required="">
 							  </div>
 							</div>
 
 					       <div class="control-group">
-								<label class="control-label" for="selectError3">produit Categorie</label>
+								<label class="control-label" for="selectError3">Surface</label>
 								<div class="controls">
 								  <select id="selectError3" name="categorie_id">
-								  	<option>selectionner une categorie</option>
+								  	<option>selectionner une surface</option>
 								  	<?php 
                                 $toute_publication_categorie=DB::table('table_categorie')
                                         ->where('publication_status',1)
                                         ->get();
                             
                                        foreach($toute_publication_categorie as $v_categorie){?>  
-							<option value="{{$v_categorie->categorie_id}}">{{$v_categorie->categorie_nom}}</option>
+							<option value="{{$v_categorie->categorie_id}}">{{$v_categorie->categorie_surface}}</option>
 									<?php } ?>
 								  </select>
 								</div>
 							  </div>
 
 							  <div class="control-group">
-								<label class="control-label" for="selectError3">Nom du fournisseur</label>
+								<label class="control-label" for="selectError3">Nom du lieu</label>
 								<div class="controls">
-								  <select id="selectError3" name="fournisseur_id">
-								  	<option>Selectionner un fournisseur</option>
+								  <select id="selectError3" name="lieu_id">
+								  	<option>Selectionner un lieu</option>
 								  	 	<?php 
-                                $toute_publication_fournisseur=DB::table('table_fournisseur')
+                                $toute_publication_lieu=DB::table('table_lieu')
                                         ->where('publication_status',1)
                                         ->get();
-                                foreach($toute_publication_fournisseur as $v_fournisseur){?>
-								<option value="{{$v_fournisseur->fournisseur_id}}">{{$v_fournisseur->fournisseur_nom}}</option>
+                                foreach($toute_publication_lieu as $v_lieu){?>
+								<option value="{{$v_lieu->lieu_id}}">{{$v_lieu->lieu_nom}}</option>
 									<?php } ?>
 								  </select>
 								</div>
 							  </div>
 
-							<div class="control-group hidden-phone">
-							  <label class="control-label" for="textarea2">produit petit description</label>
-							  <div class="controls">
-								<input type="text" class="input-xlarge" name="produit_court_desc" required="">
-							  </div>
-							</div>
-
-							<div class="control-group hidden-phone">
-							  <label class="control-label" for="textarea2">produit long description</label>
-							  <div class="controls">
-								<input type="text" class="input-xlarge" name="produit_long_desc" required="">
-							  </div>
-							</div>
-
-
+							
 							
 							
 							<div class="control-group">
 							  <label class="control-label" for="date01">Prix</label>
 							  <div class="controls">
-								<input type="text" class="input-xlarge" name="produit_prix" required="">
+								<input type="text" class="input-xlarge" name="terrain_prix" required="">
 							  </div>
 							</div>
 
 								<div class="control-group">
 							  <label class="control-label" for="fileInput">Image</label>
 							  <div class="controls">
-								<input class="input-file uniform_on" id="fileInput" name="produit_image" type="file">
+								<input class="input-file uniform_on" id="fileInput" name="terrain_image" type="file">
 							  </div>
 							</div> 
 
-							<div class="control-group">
-							  <label class="control-label" for="date01">produit taille</label>
-							  <div class="controls">
-								<input type="text" class="input-xlarge" name="produit_size" required="">
-							  </div>
-							</div>
-
-							<div class="control-group">
-							  <label class="control-label" for="date01">produit couleur</label>
-							  <div class="controls">
-								<input type="text" class="input-xlarge" name="produit_couleur" required="">
-							  </div>
-							</div>
+							
 
 							<div class="control-group hidden-phone">
 							  <label class="control-label" for="textarea2">Publication status</label>
@@ -130,7 +104,7 @@
 							</div>
 
 							<div class="form-actions">
-							  <button type="submit" class="btn btn-primary">Ajouter un produit</button>
+							  <button type="submit" class="btn btn-primary">Ajouter un terrain</button>
 							  <button type="reset" class="btn">Annuler</button>
 							</div>
 						  </fieldset>

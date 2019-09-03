@@ -14,17 +14,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $tous_produit_publication=DB::table('table_produit')
-                    ->join('table_categorie','table_produit.categorie_id','=','table_categorie.categorie_id')
-                    ->join('table_fournisseur','table_produit.fournisseur_id','=','table_fournisseur.fournisseur_id')
-                    ->select('table_produit.*','table_categorie.categorie_nom','table_fournisseur.fournisseur_nom')     
-                    ->where('table_produit.publication_status',1)
+        $tous_terrain_publication=DB::table('table_terrain')
+                    ->join('table_categorie','table_terrain.categorie_id','=','table_categorie.categorie_id')
+                    ->join('table_lieu','table_terrain.lieu_id','=','table_lieu.lieu_id')
+                    ->select('table_terrain.*','table_categorie.categorie_surface','table_lieu.lieu_nom')     
+                    ->where('table_terrain.publication_status',1)
                     ->limit(9)
                     ->get();
-        $manage_produit=view('pages.home_content')
-            ->with('tous_produit_publication',$tous_produit_publication);
+        $manage_terrain=view('pages.home_content')
+            ->with('tous_terrain_publication',$tous_terrain_publication);
 
-        return view('layout')->with('pages.home_content',$manage_produit);
+        return view('layout')->with('pages.home_content',$manage_terrain);
     }
 
     /**
@@ -32,18 +32,20 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function produit_par_categorie($categorie_id)
+
+    //Affichage des terrains par categorie
+    public function terrain_par_categorie($categorie_id)
     {
-     $produit_par_categorie=DB::table('table_produit')
-                       ->join('table_categorie','table_produit.categorie_id','=','table_categorie.categorie_id')
-                       ->select('table_produit.*','table_categorie.categorie_nom')
+     $terrain_par_categorie=DB::table('table_terrain')
+                       ->join('table_categorie','table_terrain.categorie_id','=','table_categorie.categorie_id')
+                       ->select('table_terrain.*','table_categorie.categorie_surface')
                        ->where('table_categorie.categorie_id',$categorie_id)
                        ->limit(12)
                        ->get();
-        $manage_produit_par_categorie=view('pages.produit_par_categorie')
-            ->with('produit_par_categorie',$produit_par_categorie);
+        $manage_terrain_par_categorie=view('pages.terrain_par_categorie')
+            ->with('terrain_par_categorie',$terrain_par_categorie);
 
-        return view('layout')->with('pages.produit_par_categorie',$manage_produit_par_categorie);   
+        return view('layout')->with('pages.terrain_par_categorie',$manage_terrain_par_categorie);   
     }
 
     /**
@@ -52,19 +54,21 @@ class HomeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function produit_par_fournisseur($fournisseur_id)
+
+    //Affichage des terrains par lieu
+    public function terrain_par_lieu($lieu_id)
     {
-      $produit_par_fournisseur=DB::table('table_produit')
-                    ->join('table_categorie','table_produit.categorie_id','=','table_categorie.categorie_id')
-                    ->join('table_fournisseur','table_produit.fournisseur_id','=','table_fournisseur.fournisseur_id')
-                    ->select('table_produit.*','table_categorie.categorie_nom','table_fournisseur.fournisseur_nom')     
-                    ->where('table_fournisseur.fournisseur_id',$fournisseur_id)
+      $terrain_par_lieu=DB::table('table_terrain')
+                    ->join('table_categorie','table_terrain.categorie_id','=','table_categorie.categorie_id')
+                    ->join('table_lieu','table_terrain.lieu_id','=','table_lieu.lieu_id')
+                    ->select('table_terrain.*','table_categorie.categorie_surface','table_lieu.lieu_nom')     
+                    ->where('table_lieu.lieu_id',$lieu_id)
                     ->limit(9)
                     ->get();
-        $manage_produit_par_fournisseur=view('pages.produit_par_fournisseur')
-            ->with('produit_par_fournisseur',$produit_par_fournisseur);
+        $manage_terrain_par_lieu=view('pages.terrain_par_lieu')
+            ->with('terrain_par_lieu',$terrain_par_lieu);
 
-        return view('layout')->with('pages.produit_par_fournisseur',$manage_produit_par_fournisseur);
+        return view('layout')->with('pages.terrain_par_lieu',$manage_terrain_par_lieu);
     }
 
     /**
@@ -73,52 +77,20 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function produit_detail_par_id($produit_id)
+    public function terrain_detail_par_id($terrain_id)
     {
-     $produit_detail=DB::table('table_produit')
-                    ->join('table_categorie','table_produit.categorie_id','=','table_categorie.categorie_id')
-                    ->join('table_fournisseur','table_produit.fournisseur_id','=','table_fournisseur.fournisseur_id')
-                    ->select('table_produit.*','table_categorie.categorie_nom','table_fournisseur.fournisseur_nom')     
-                    ->where('table_produit.produit_id',$produit_id)
-                    ->where('table_produit.publication_status',1)
+     $terrain_detail=DB::table('table_terrain')
+                    ->join('table_categorie','table_terrain.categorie_id','=','table_categorie.categorie_id')
+                    ->join('table_lieu','table_terrain.lieu_id','=','table_lieu.lieu_id')
+                    ->select('table_terrain.*','table_categorie.categorie_surface','table_lieu.lieu_nom')     
+                    ->where('table_terrain.terrain_id',$terrain_id)
+                    ->where('table_terrain.publication_status',1)
                     ->first();
-        $manage_produit_detail=view('pages.produit_detail')
-            ->with('produit_detail',$produit_detail);
+        $manage_terrain_detail=view('pages.terrain_detail')
+            ->with('terrain_detail',$terrain_detail);
 
-        return view('layout')->with('pages.produit_detail',$manage_produit_detail);   
+        return view('layout')->with('pages.terrain_detail',$manage_terrain_detail);   
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+    
 }

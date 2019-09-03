@@ -38,21 +38,15 @@
 						  <fieldset>
 							
 							<div class="control-group">
-							  <label class="control-label" for="date01">Nom Categorie</label>
+							  <label class="control-label" for="date01">Surfacee</label>
 							  <div class="controls">
-								<input type="text" class="input-xlarge" name="categorie_nom" value="{{$categorie_info->categorie_nom}}">
+								<input type="text" class="input-xlarge" name="categorie_surface" value="{{$categorie_info->categorie_surface}}">
 							  </div>
 							</div>
 					      
-							<div class="control-group hidden-phone">
-							  <label class="control-label" for="textarea2">categorie description</label>
-							  <div class="controls">
-								<input type="text" class="input-xlarge" name="categorie_description" value="{{$categorie_info->categorie_description}}">
-							  </div>
-							</div>
 							
 							<div class="form-actions">
-							  <button type="submit" class="btn btn-primary">Modifier la categorie</button>
+							  <button type="submit" class="btn btn-primary">Modifier la surface</button>
 							</div>
 						  </fieldset>
 						</form>   

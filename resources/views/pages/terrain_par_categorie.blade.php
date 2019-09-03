@@ -1,28 +1,28 @@
 @extends('layout')
 @section('content')
-                        <h2 class="title text-center">Features Items</h2>
-                       <?php foreach($produit_par_fournisseur as $vproduit_par_fournisseur){?> 
+                        <h2 class="title text-center">Terrains Disponibles</h2>
+                       <?php foreach($terrain_par_categorie as $vterrain_par_categorie){?> 
                         <div class="col-sm-4">
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="{{URL::to($vproduit_par_fournisseur->produit_image)}}" style="height: 200px;" alt="" />
-                                            <h2>{{$vproduit_par_fournisseur->produit_prix}} Franc CFA</h2>
-                                            <p>{{$vproduit_par_fournisseur->produit_nom}}</p>
+                                            <img src="{{URL::to($vterrain_par_categorie->terrain_image)}}" style="height: 200px;" alt="" />
+                                            <h2>{{$vterrain_par_categorie->terrain_prix}} Franc CFA</h2>
+                                            <p>{{$vterrain_par_categorie->terrain_nom}}</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ajouter au panier</a>
                                         </div>
                                         <div class="product-overlay">
                                             <div class="overlay-content">
-                                                <h2>{{$vproduit_par_fournisseur->produit_prix}} Franc CFA</h2>
-                                                <p>{{$vproduit_par_fournisseur->produit_nom}}</p>
+                                                <h2>{{$vterrain_par_categorie->terrain_prix}} Franc CFA</h2>
+                                                <p>{{$vterrain_par_categorie->terrain_nom}}</p>
                                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ajouter au panier</a>
                                             </div>
                                         </div>
                                 </div>
                                 <div class="choose">
                                     <ul class="nav nav-pills nav-justified">
-                                        <li><a href="#"><i class="fa fa-plus-square"></i>{{$vproduit_par_fournisseur->fournisseur_nom}}</a></li>
-                                        <li><a href="#"><i class="fa fa-plus-square"></i>Voir produit</a></li>
+                                        <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+                                        <li><a href="#"><i class="fa fa-plus-square"></i>Voir terrain</a></li>
                                     </ul>
                                 </div>
                             </div>

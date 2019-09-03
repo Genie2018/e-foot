@@ -339,15 +339,15 @@
 						<li><a href="{{URL::to('/toute-categorie')}}"><i class="icon-envelope"></i><span class="hidden-tablet"> Toutes les catégories</span></a></li>
 						<li><a href="{{URL::to('/ajouter-categorie')}}"><i class="icon-tasks"></i><span class="hidden-tablet">Ajouter une categorie</span></a></li>
 
-						<li><a href="{{URL::to('/tous-fournisseur')}}"><i class="icon-eye-open"></i><span class="hidden-tablet">Tous les fournisseurs</span></a></li>
-						<li><a href="{{URL::to('/ajouter-fournisseur')}}"><i class="icon-dashboard"></i><span class="hidden-tablet"> Ajouter fournisseur</span></a></li>
+						<li><a href="{{URL::to('/tous-lieu')}}"><i class="icon-eye-open"></i><span class="hidden-tablet">Tous les lieux</span></a></li>
+						<li><a href="{{URL::to('/ajouter-lieu')}}"><i class="icon-dashboard"></i><span class="hidden-tablet"> Ajouter un lieu</span></a></li>
 
 						<li>
-							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">produit</span><span class="label label-important">Nouveau</span></a>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">terrain</span><span class="label label-important">Nouveau</span></a>
 							<ul>
-								<li><a class="submenu" href="{{URL::to('/ajouter-produit')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">Ajouter produit</span></a></li>
-								<li><a class="submenu" href="{{URL::to('/tous-produit')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">Tous les produits</span></a></li>
-								<li><a class="submenu" href="{{URL::to('/activation-produit')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">Activation des produits</span></a></li>
+								<li><a class="submenu" href="{{URL::to('/ajouter-terrain')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">Ajouter terrain</span></a></li>
+								<li><a class="submenu" href="{{URL::to('/tous-terrain')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">Tous les terrains</span></a></li>
+								<li><a class="submenu" href="{{URL::to('/activation-terrain')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">Activation des terrains</span></a></li>
 								
 							</ul>	
 						</li>

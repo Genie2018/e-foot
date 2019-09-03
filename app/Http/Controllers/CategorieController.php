@@ -34,8 +34,7 @@ class CategorieController extends Controller
     {
         $data=array();
         $data['categorie_id']=$request->categorie_id;
-        $data['categorie_nom']=$request->categorie_nom;
-        $data['categorie_description']=$request->categorie_description;
+        $data['categorie_surface']=$request->categorie_surface;
         $data['publication_status']=$request->publication_status;
 
         DB::table('table_categorie')->insert($data);
@@ -80,34 +79,7 @@ class CategorieController extends Controller
     }
 
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function edit_categorie($categorie_id)
     {   $this->AdminAuthCheck();
         $categorie_info=DB::table('table_categorie')
@@ -130,9 +102,8 @@ class CategorieController extends Controller
     public function modifier_categorie(Request $request,$categorie_id)
     {
         $data=array();
-        $data['categorie_nom']=$request->categorie_nom;
-        $data['categorie_description']=$request->categorie_description;
-
+        $data['categorie_surface']=$request->categorie_surface;
+        
         DB::table('table_categorie')
         ->where('categorie_id',$categorie_id)
         ->update($data);

@@ -32,17 +32,17 @@
 						  <thead>
 
 							  <tr>
-								  <th>Produit ID</th>
+								  <th> ID</th>
 								  <th>Image</th>
 								  <th>Status</th>
 								  <th>Actions</th>
 							  </tr>
 						  </thead>
-						  @foreach($activation_produit_info as $v_activation)   
+						  @foreach($activation_terrain_info as $v_activation)   
 						  <tbody>
 							<tr>
-								<td>{{$v_activation->produit_id}}</td>
-					<td class="center"><img src="{{$v_activation->produit_image}}" style="height: 80px; width: 80px;"></td>
+								<td>{{$v_activation->terrain_id}}</td>
+					<td class="center"><img src="{{$v_activation->terrain_image}}" style="height: 80px; width: 80px;"></td>
 								<td class="center">
 								@if($v_activation->publication_status==1)
 									<span class="label label-success">Active</span>
@@ -53,18 +53,18 @@
 								</td>
 								<td class="center">
 									@if($v_activation->publication_status==1)
-									<a class="btn btn-danger" href="{{URL::to('/inactive-produit_inactive/'.$v_activation->produit_id)}}">
+									<a class="btn btn-danger" href="{{URL::to('/inactive-terrain_inactive/'.$v_activation->terrain_id)}}">
 										<i class="halflings-icon white thumbs-down"></i>  
 									</a>
 									@else
-									<a class="btn btn-success" href="{{URL::to('/active-produit_active/'.$v_activation->produit_id)}}">
+									<a class="btn btn-success" href="{{URL::to('/active-terrain_active/'.$v_activation->terrain_id)}}">
 										<i class="halflings-icon white thumbs-up"></i>  
 									</a>
 									@endif
-									<a class="btn btn-info" href="{{URL::to('/edit-produit_active/'.$v_activation->produit_id)}}">
+									<a class="btn btn-info" href="{{URL::to('/edit-terrain_active/'.$v_activation->terrain_id)}}">
 										<i class="halflings-icon white edit"></i>  
 									</a>
-									<a class="btn btn-danger" href="{{URL::to('/delete-produit_active/'.$v_activation->produit_id)}}" id="delete">
+									<a class="btn btn-danger" href="{{URL::to('/delete-terrain_active/'.$v_activation->terrain_id)}}" id="delete">
 										<i class="halflings-icon white trash"></i> 
 									</a>
 								</td>

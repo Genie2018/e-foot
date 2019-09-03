@@ -10,14 +10,14 @@
 				</li>
 				<li>
 					<i class="icon-edit"></i>
-					<a href="#">Modififer un fournisseur</a>
+					<a href="#">Ajouter un lieu</a>
 				</li>
 			</ul>
 			
 			<div class="row-fluid sortable">
 				<div class="box span12">
 					<div class="box-header" data-original-title>
-						<h2><i class="halflings-icon edit"></i><span class="break"></span>Modifier un fournisseur</h2>
+						<h2><i class="halflings-icon edit"></i><span class="break"></span>Votre &nbsp</h2>
 						
 							<p class="alert-success">
 								<?php
@@ -33,26 +33,29 @@
 								
 					</div>
 					<div class="box-content">
-						<form class="form-horizontal" action="{{url('/modifier-fournisseur',$fournisseur_info->fournisseur_id)}}" method="post">
+						<form class="form-horizontal" action="{{url('/sauvegarder-lieu')}}" method="post">
 							{{ csrf_field() }}
 						  <fieldset>
 							
 							<div class="control-group">
-							  <label class="control-label" for="date01">Nom fournisseur</label>
+							  <label class="control-label" for="date01">lieu</label>
 							  <div class="controls">
-								<input type="text" class="input-xlarge" name="fournisseur_nom" value="{{$fournisseur_info->fournisseur_nom}}">
+								<input type="text" class="input-xlarge" name="lieu_nom" required="">
 							  </div>
 							</div>
 					      
+							
+							
 							<div class="control-group hidden-phone">
-							  <label class="control-label" for="textarea2">fournisseur description</label>
+							  <label class="control-label" for="textarea2">Publication status</label>
 							  <div class="controls">
-								<input type="text" class="input-xlarge" name="fournisseur_nom" value="{{$fournisseur_info->fournisseur_description}}">
+								<input type="checkbox" name="publication_status" value="1">
 							  </div>
 							</div>
-							
+
 							<div class="form-actions">
-							  <button type="submit" class="btn btn-primary">Modifier le fournisseur</button>
+							  <button type="submit" class="btn btn-primary">Ajouter un lieu</button>
+							  <button type="reset" class="btn">Annuler</button>
 							</div>
 						  </fieldset>
 						</form>   
